@@ -21,16 +21,18 @@
   justify-content: left;
   align-items: center;
   width: 100%;
+  font-weight: 700;
 }
 
 .inputs input {
-  width: 80px;
+  width: 90px;
   height: 20px;
   border-radius: 5px;
   border: 1px solid var(--color-light-grey);
   margin: 10px 10px 0 10px;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 20px;
+  font-weight: 700;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -39,7 +41,7 @@ input::-webkit-inner-spin-button {
 }
 
 .inputs input:focus {
-  border: 1px solid #512d9f;
+  border: 1px solid var(--color-purple);
   outline: none;
 }
 .error {
@@ -57,7 +59,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .input-holder label {
@@ -106,7 +108,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   margin: 20px;
   font-size: 56px;
   font-style: italic;
@@ -124,6 +126,8 @@ input::-webkit-inner-spin-button {
 
 .number {
   color: var(--color-purple);
+  /* rolling numbers transition */
+  transition: transform 0.5s ease-in-out;
 }
 
 @media (max-width: 500px) {
@@ -150,7 +154,7 @@ input::-webkit-inner-spin-button {
     margin: 0;
   }
   .inputs input {
-    width: 40px;
+    width: 50px;
   }
 
   .age {

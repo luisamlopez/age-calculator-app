@@ -1,14 +1,22 @@
 import { useState } from "react";
 import "./card.css";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Field, Form, Formik, getIn } from "formik";
+import { Field, Form, Formik } from "formik";
 
 const schema = yup.object().shape({
   day: yup
     .number()
     .moreThan(0, "Please enter a valid day")
     .lessThan(32, "Please enter a valid day")
+    .test(
+      "day",
+      "Please enter a valid day for the month",
+      (value, { parent }) => {
+        const { month, year } = parent;
+        const daysInMonth = new Date(year, month, 0).getDate(); // Get the number of days in the selected month
+        return value <= daysInMonth;
+      }
+    )
     .required("This field is required"),
   month: yup
     .number()
@@ -44,10 +52,6 @@ export const Card = () => {
     setYears(age);
     setMonths(m.toString().padStart(2, "0"));
     setDays(d.toString().padStart(2, "0"));
-    // //reset form
-    // values.day = "";
-    // values.month = "";
-    // values.year = "";
   };
 
   return (
@@ -71,7 +75,9 @@ export const Card = () => {
                     {({ field, meta }) => (
                       <>
                         <input
-                          className={touched && errors ? "invalid" : ""}
+                          className={
+                            meta.touched && meta.error ? "invalid" : ""
+                          }
                           type="number"
                           min={1}
                           max={31}
@@ -94,7 +100,9 @@ export const Card = () => {
                     {({ field, meta }) => (
                       <>
                         <input
-                          className={touched && errors ? "invalid" : ""}
+                          className={
+                            meta.touched && meta.error ? "invalid" : ""
+                          }
                           type="number"
                           min={1}
                           max={12}
@@ -117,7 +125,9 @@ export const Card = () => {
                     {({ field, form: { touched, errors }, meta }) => (
                       <>
                         <input
-                          className={touched && errors ? "invalid" : ""}
+                          className={
+                            meta.touched && meta.error ? "invalid" : ""
+                          }
                           type="number"
                           min={1900}
                           max={2023}
