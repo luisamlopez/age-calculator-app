@@ -26,7 +26,7 @@ Users should be able to:
 ### Links
 
 - [Solution URL](https://github.com/luisamlopez/age-calculator-app)
-- [Live Site URL](luisamlopezg-age-calculator-app.netlify.app)
+- [Live Site URL](https://luisamlopezg-age-calculator-app.netlify.app/)
 ## My process
 
 ### Built with
