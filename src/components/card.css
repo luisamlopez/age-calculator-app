@@ -160,6 +160,7 @@ input::-webkit-inner-spin-button {
   .age {
     margin: 0;
     font-size: 48px;
+    margin-bottom: 20px;
   }
 
   .card {
