@@ -130,7 +130,7 @@ input::-webkit-inner-spin-button {
   transition: transform 0.5s ease-in-out;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .divider-btn {
     flex-direction: column;
     justify-content: center;
